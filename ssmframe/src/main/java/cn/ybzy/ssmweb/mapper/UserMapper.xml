@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ybzy.ssmweb.mapper.UserMapper">
+     <select id="selectUser" resultType="cn.ybzy.ssmweb.model.User">
+        select * from sb_users where id=#{id}	
+     </select>
+     
+     <select id="selectAllUser" resultType="cn.ybzy.ssmweb.model.User">
+        select * from sb_users
+     </select>
+     
+     <select id="getusername" resultType="String">
+        select username from sb_users where id=#{id}	
+     </select>
+     
+     <insert id="addUser">
+         insert into 
+         sb_users(username,password,state,reg_date)
+         values
+         (#{username},#{password},#{state},#{regDate})
+     </insert>
+     <update id="updateUser">
+        update sb_users set username=#{username},password=#{password},
+               state=#{state},reg_date=#{regDate} where id=#{id}
+     </update>
+     
+     <delete id="deleteUser">
+          delete from sb_users where id=#{id}
+     </delete>
+     
+     
+     
+</mapper>
